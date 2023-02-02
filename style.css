@@ -1,0 +1,486 @@
+body{
+	background-color: white;
+}
+
+/*************Bottom Bar w/ faq,socials, etc*************/
+#bottomBar{
+	background-color:white;
+	width:91.45%;
+	height:6.6%;
+	
+	border: 2px solid green;
+	padding: 10px;
+	
+	position: fixed;
+	/*top: 89.15%;*/
+	left: 6.75%;
+	bottom:0;
+
+	z-index: 1;
+	
+}
+
+/*********TRACKERS****************/
+#homeScreen{
+	background-color:tomato;
+	
+	border: 2px solid black;
+	
+	width:90.25%; /*formerly 71.25%*/
+	height: 800px;
+	
+	position:absolute;
+	left:6.75%;
+	top:10.8%;
+
+	display: initial; /*init value*/
+}
+
+/*basic header format for all page names*/
+.basicHead{
+	color:black;
+	font-family: verdana;
+	padding: 5px;	
+}
+
+
+#plans{
+	background-color: lightgray;
+	
+	border: 2px solid black;
+	
+	width:71.25%;
+	height: 800px;
+	
+	position:absolute;
+	left:6.75%;
+	top:10.8%;
+
+	display: none; /*init value*/	
+}
+
+
+#meals{
+	background-color:yellow;
+	
+	border: 2px solid black;
+	
+	width:90.25%;
+	height: 800px;
+	
+	position:absolute;
+	left:6.75%;
+	top:10.8%;
+
+	display: none; /*init value*/	
+}
+
+#water{
+	background-color:#39a2ccef;
+	
+	border: 2px solid black;
+	
+	width:90.25%;
+	height:1300px;
+	position:absolute;
+	left:6.75%;
+	top:10.8%;
+
+	display: none; /*init value*/	
+}
+
+/******************** START OF STYLES FOR ELEMENTS SHOWING UP UNDER THE WATER SECTION ****************************/
+
+#water_chart {
+	z-index: 2;
+
+	position: absolute;
+	left: 25%;
+	top: 8%;
+
+}
+
+#glass {
+	background-color: rgba(255, 255, 255, 0.95);
+	border: 1px solid rgba(0, 0, 0, 0.1);
+	border-radius: 0.5rem 0.5rem 3rem 3rem;
+	height: 30rem;
+	padding: 6% 1% 1%;
+	/*
+	If any of border/border-radius/height/padding change, a hard-coded 
+	value within initialize_markings_arr() in script.js will also have to be adjusted accordingly
+	*/
+	width: 15rem;
+	z-index: 1;
+	position: absolute;
+	left: 40%;
+	top: 40%;
+  }
+  
+  .glass__inner {
+	border-radius: 0 0 3rem 3rem;
+	overflow: hidden;
+	position: relative;
+	height: 100%;
+	width: 100%;
+	z-index: 2;
+  }
+  
+  .liquid {
+	background-color: #83e8fe;
+	height: 100%;
+	left: 0;
+	position: absolute;
+	top: 0;
+	transform: translate(0, 100%);
+	width: 100%;
+	z-index: 2;
+  }
+  
+  .liquid--hidden {
+	display: none;
+  }
+
+  #quantity_display_glasses, #quantity_display_number
+  {
+	position:absolute;
+	font-weight:"bold";
+	z-index: 1;
+	font-size: 40px;
+	top:0%;
+	left:0%;
+	transform: translate(0,-100%);
+	user-select: none;
+	/*background-color: red;*/
+  }
+
+  #quantity_display_glasses
+  {
+	text-align: right;
+	width: 100%;
+  }
+
+  #quantity_display_number
+  {
+	background-color:#6a97a8ef;
+	text-align: right;
+	width: 50%;
+	/*-webkit-appearance: none;*/
+	/*background: transparent;*/
+	font-family: "Calibri, sans-serif";
+	border: none;
+	font-family: 'Times New Roman', Times, serif;
+  }
+
+
+  #recommended_label
+  {
+	  position: absolute;
+	  font-size: 20px;
+	  font-weight: bold;
+	  z-index: 1;
+	  left: 0;
+	  transform: translate(-105%);
+	  bottom:1%;
+	  white-space: pre;
+	  text-align: center;
+	  user-select: none;
+  }
+
+  #recommended_line_water
+  {
+	background: red;
+	/*bottom:60px;*/
+	position: absolute;
+	width:100%;
+	left:50%;
+	transform: translate(-50%);
+	z-index: 5;
+	height:2px;
+	align-content: center;
+  }
+
+  .button-strip {
+	position: absolute;
+	top: 0%;
+	left: 40%;
+	width: 340px;
+	height: 55px;
+	border: 2px solid #39a2ccef;
+	border-radius: 3px;
+	display: flex;
+  }
+  
+  .strip-button {
+	background-color: white;
+	color: #39a2ccef;
+	width: 50%;
+	height: 100%;
+	text-align: center;
+	vertical-align: middle;
+	line-height: 65px;
+	transition: background-color .4s linear, color .2s linear;
+	cursor: pointer;
+  }
+  
+  .strip-button span {
+	color: inherit;
+  }
+  
+  .strip-button-text {
+	font-size: 22px;
+	color: #39a2ccef;
+	margin: 0px;
+	padding: 0px;
+  }
+  
+  .active-strip-button {
+	background-color: #1496BD;
+	color: white;
+  }
+
+  .btn {
+	height: 20px;
+	line-height: 20px;  
+	width: 20px;  
+	font-size: 20px;
+	font-weight: bold;
+	border-radius: 50%;
+	background-color: #1496BD;
+	color: white;
+	text-align: center;
+	position:absolute;
+	left:-10%;
+	bottom:105%;
+  }
+
+  #loader {
+	border: 16px solid #000000; 
+	border-top: 16px solid #da2626; 
+	border-radius: 50%;
+	width: 120px;
+	height: 120px;
+	animation: spin 2s linear infinite;
+	position: fixed;
+	left: 50%;
+	top: 50%;
+	z-index: 99;
+	visibility: hidden;
+  }
+  
+  @keyframes spin {
+	0% { transform: rotate(0deg); }
+	100% { transform: rotate(360deg); }
+  }
+
+/************************* END OF STYLES FOR ELEMENTS SHOWING UP UNDER THE WATER SECTION ****************************/
+
+#sleep{
+	background-color:orange;
+	
+	border: 2px solid black;
+	
+	width:90.25%;
+	height: 800px;
+	
+	position:absolute;
+	left:6.75%;
+	top:10.8%;
+
+	display: none; /*init value*/		
+}
+
+#exercise{
+	background-color: white;
+	
+	border: 2px solid black;
+	
+	width:90.25%;
+	height: 800px;
+	
+	position:absolute;
+	left:6.75%;
+	top:10.8%;
+
+	display: none; /*init value*/		
+}
+
+/***********Top header area*****************/
+#topbar{
+    background-color:white;
+	width:100%;
+	height:10%;
+	border: 2px solid green;
+
+	position:fixed;
+	top: 0.0%;
+	left: 0.0%;
+
+	z-index: 4;
+}
+
+#appNameButton{
+	background-color:black;
+	color: white;
+	font-size:30px;
+	padding:10px;
+	text-align:left;
+	cursor: pointer;
+	margin: 5px;
+	
+	position: relative;
+	top: 2%;
+}
+
+/***********Side bar w/ tracker seletion buttons************/
+#sidebar{
+	background-color: white;
+	
+	width:6%;
+	height:90%;
+	
+	padding: 10px;
+	
+	/*display:grid;*/
+	border: 2px solid green;
+	
+	position:fixed;
+	top: 10.8%;
+	left:0.0%;
+	
+}
+
+/*TEMPORARY will be replaced with images/icons instead of text & colour*/
+#plansButton {
+	background-color:black;
+	color:white;
+	padding:3px;
+	text-align: center;
+	font-size: 16px;
+	cursor:pointer;
+	margin: auto;
+	/*
+	width:85%;
+	height:50%;*/
+	
+	width: 90%;
+	height: 10%; 
+	
+	position: relative; /*relative to normal position*/
+	top: 0.5%;
+	left: 2.5%;
+}
+
+#mealsButton {
+	background-color:black;
+	color:white;
+	padding:3px;
+	text-align: center;
+	font-size: 16px;
+	cursor:pointer;
+	margin: auto;
+	
+	width: 90%;
+	height: 10%;
+	
+	position: relative; 
+	top: 9.5%;
+	left: 2.5%;
+}
+
+#waterButton {
+	background-color:black;
+	color:white;
+	padding:3px;
+	text-align: center;
+	font-size: 16px;
+	cursor:pointer;
+	margin: auto;
+	
+	width: 90%;
+	height: 10%;
+	
+	position: relative; 
+	top: 18.5%;
+	left: 2.5%;
+}
+
+#sleepButton {
+	background-color:black;
+	color:white;
+	padding:3px;
+	text-align: center;
+	font-size: 16px;
+	cursor:pointer;
+	margin: auto;
+	
+	width: 90%;
+	height: 10%;
+	
+	position: relative; 
+	top: 27.5%;
+	left: 2.5%;	
+}
+
+#exerciseButton {
+	background-color:black;
+	color:white;
+	padding:3px;
+	text-align: center;
+	font-size: 16px;
+	cursor:pointer;
+	margin: auto;
+
+	width: 90%;
+	height: 10%;
+	
+	position: relative; 
+	top: 36.5%;
+	left: 2.5%;	
+}
+
+/***********General Info Bar***************/
+#generalInfo{
+	background-color: white;
+	
+	width:21.3%;
+	height:79.2%;	
+	
+	border: 2px solid green;
+	
+	position:fixed;
+	top: 10.8%;
+	/*left: 78.2%;	*/
+	right:0;
+	
+	z-index:1;
+}
+
+#genInfToggle{
+	
+	width: 1%;
+	height: 5%;
+	
+	position: fixed;
+	top: 48.8%;
+	left:78.5%;
+	z-index:4;
+}
+
+/*************Bottom Bar w/ faq,socials, etc*************/
+#bottomBar{
+	background-color:white;
+	width:91.45%;
+	height:6.6%;
+	
+	border: 2px solid green;
+	padding: 10px;
+	
+	position: fixed;
+	/*top: 89.15%;*/
+	left: 6.75%;
+	bottom:0;
+
+	z-index: 4;
+	
+}

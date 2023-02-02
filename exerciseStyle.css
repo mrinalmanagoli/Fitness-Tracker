@@ -1,0 +1,300 @@
+/**************HEADERZ*********/
+#exManagmentHeader{
+	font-family: verdana;
+	display:initial;
+	
+	position: relative;
+	top: 15%;	
+}
+
+
+/**************DIVS***********/
+#exerciseAdder{
+	border: 2px solid green;
+	background-color: white;
+	
+	position: absolute;
+	width: 50%;
+	height: 20%;
+
+    top:51%;
+    left: 2%;
+	
+	display: none;
+}
+
+#exMenuDiv{
+	border: 2px solid green;
+	background-color: white;
+	
+	position: absolute;
+	width: 50%;
+	height: 20%;
+
+    top:51%;
+    left: 2%;	
+	
+	display: inline;
+}
+
+#trackWeightArea{
+	position: relative;
+	top: 5%;
+	left: 75%;
+	
+	
+}
+
+#routinesList{
+	
+	position:absolute;
+ 	width: 95%;
+	height: 20%;
+	
+	top:15%;
+    left: 2%;
+	
+	display: initial;
+	
+}
+
+#routineAdder{
+	/*border: 1px solid red;*/
+	position:absolute;
+ 	width: 99%;
+	/*height: 100%;*/
+	
+	top:20%;
+	/*left: 1%;*/
+	
+	/*overflow-y: scroll;*/
+	/*overflow-x: hidden;*/
+	
+	display: none;
+}
+
+#routineCreator{
+	border: 2px solid green; /*temporary colour*/
+	background-color: white;
+	
+	position: absolute;
+	width: 50%;
+	height: 20%;
+
+    top:51%;
+    left: 2%;
+	
+	display: none;
+	/*overflow-y: scroll;*/
+}
+
+#newRtnListDiv{
+	border: 1px solid green;
+	
+	position: absolute;
+	
+	width: 100%;
+	height: 85%;
+	
+	top:15%;
+    left: 0%;
+	
+	display: initial;
+	overflow-y:scroll;
+}
+
+#routineManager{
+	border: 2px solid green;
+	background-color: white;
+	
+	position: absolute;
+	width: 50%;
+	height: 20%;
+
+    top:51%;
+    left: 2%;
+	
+	display: none;
+	
+	overflow-y:scroll;
+}
+
+#exTodayTracker{
+	border: 2px solid green;
+	background-color: white;
+	
+	position: absolute;
+	width: 39.8%;
+	height: 66%;	
+	
+	top: 8.9%;
+	left: 60%;
+	
+	display: initial;
+	
+	overflow-y: scroll;
+	/*display: grid;*/
+}
+
+#todayExBorder{
+    border: 2px solid green;
+	background-color: white;
+	
+	position: absolute;
+	
+	top:-0.3%;
+	left: 60%;
+	
+	width: 39.8%;
+	height: 9%;
+	
+	/*display: inline;*/
+	/*margin-bottom: 150%;*/
+}
+
+#exManagmentHeadSection{
+	border: 2px solid green;
+	background-color: white;
+	
+	position: relative;
+	width: 50%;
+	height: 5%;
+	
+	top:35%;
+	left: 2%;	
+}
+
+#recommendedExDiv{
+	border: 2px solid green;
+	background-color: white;
+	
+	position: absolute;
+	width: 30%;
+	height: 7%;
+	
+	top: 2%;
+	left: 22%;
+}
+/***************FORMS****************/
+#exAddForm{
+	margin-bottom: 1.5%;
+}
+
+/***************BUTTONS***************/
+#newRoutineBtn{
+   position:absolute;
+   
+   top:3%;
+   left:1%;
+}
+
+#confirmRoutineBtn{
+	position: absolute;
+	
+	top: 0%;
+	left: 90%;
+	
+	display: inline;
+	visibility: hidden;
+}
+
+#addExToRoutineBtn{
+	position: absolute;
+	
+	top: 0%;
+	left: 40%;
+	
+	display: inline;
+}
+
+#trackExBtn{
+	position: relative;
+	top: 35%;
+	left: 10%;
+	
+	cursor: pointer;
+}
+
+#routineMngBtn{
+	position: relative;
+	top: 35%;
+	left: 30%;
+	
+	cursor: pointer;
+}
+
+#routineTrackBtn{
+	position:absolute;
+	left: 39%;
+	top:0.1%;
+	
+	display: inline;
+	cursor:pointer;
+} 
+
+#trackWeightBtn{
+	display: block;
+	
+	cursor: pointer;	
+}
+
+#routineTrackBtn{
+	position:absolute;
+	left: 39%;
+	top:0.1%;
+	
+	display: inline;
+	cursor:pointer;
+} 
+
+#backButton{
+	position: relative;
+	
+	top: 10%;
+	left: 50%;
+	
+	cursor: pointer;
+	/*visibility:hidden;*/ /*on init do this, for testing make it visibile at the start*/
+	visibility: visibile;
+}
+
+/***************FIELDS**************/
+#exNameField{
+	font-family: verdana;
+	display:initial;
+	
+	position: absolute;
+	
+	top: 1%;
+	left: 10%;
+}
+
+#setsField{
+	position: relative;
+	width: 5%;
+	display: inline;	
+}
+
+#weightField{
+	position: relative;
+	width: 5%;
+	display: inline;
+}
+
+#weightTrackerField{
+	position:relative;
+	width: 7%;
+	display: inline;
+}
+
+#repsField{
+	position:relative;
+	width: 5%;
+	display: inline;	
+}
+
+#durationField{
+	position: relative;
+	width: 5%;
+	display: inline;
+}

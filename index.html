@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<html>
+
+	<head>
+	
+		<title>MS3 A01 PT-N Vertical Prototype</title>
+		
+		<link rel="stylesheet" href="style.css">
+      <link rel="stylesheet" href="plansStyle.css">
+		
+		<link rel="stylesheet" href="exerciseStyle.css"> <!sheet for the exercise section>
+		<link rel="stylesheet" href="exerciseChartStyle.css"> <!sheet for the exercise chart>
+
+		<script src="chartJs.js"></script> <!chartJs import>
+		<script src="exerciseChartScript.js"></script>
+		<script src="exerciseScript.js"></script>
+		
+		<script src="script.js"></script>
+        <script src="plansScript.js"></script>
+        
+		<script src="moment.js"></script>
+		
+		<script src="script.js"></script>
+		<!-- Make sure script goes first as that is where all common variables are present-->
+		<script src="water.js"></script>
+		
+		
+		<link rel="stylesheet" href="sleepStyle.css">
+		<script src="sleep.js"></script>
+		<!-- Pie chart in sleep -->
+		<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+		<!-- Miscellaneous dependencies-->
+		<script src="buttonstrip.min.js"></script>
+		
+		<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+		</script type="text/javascript">
+  
+	</head>
+	
+	
+	<body onload="init(); initPlan()"> <! initialize any js globals in script>
+
+<!***********MAIN TEMPLATE SECTIONS***********>
+<!always displayed>
+
+		<div id="topbar">
+		
+			<button id="appNameButton" title="Go to home screen" onclick="showHomeScreen()">Prototype</button>
+		
+		</div>
+		
+		
+		<div id="sidebar">
+			<!buttons for selecting trackers>
+			
+			<button id="plansButton" title="Plans" onclick="showPlans()">Plans</button>
+			
+			<button id="mealsButton" title="Meals" onclick="showMeals()">Meals</button>
+			
+			<button id="waterButton" title="Water" onclick="showWater()">Water</button>
+			
+			<button id="sleepButton" title="Sleep" onclick="showSleep()">Sleep</button>
+			
+			<button id="exerciseButton" title="Exercise" onclick="showExercise()">Exercise</button>
+			
+		</div>
+		
+		<div id="generalInfo">
+			 
+			 <button id="genInfToggle" title="hide/show" onclick="toggleGenInf()"></button>
+			 <input type="date" id="start" name="trip-start" onchange = "setDate();">
+		</div>
+
+
+		<div id="bottomBar">
+		
+		
+		</div>
+		
+<!*********HOME SCREEN/MAIN PAGE**********>
+	
+	<div id="homeScreen">
+	
+		<h1 class="basicHead">Home Page</h1>
+	
+	</div>
+		
+<!***************TRACKER DIVS**********************>
+		
+		
+	<!*****PLANS*****>		
+	<!----*****PLANS*****---->
+        <div id = "plans_all" onload = "populatePlans()"> 
+		<div id="plans">
+			
+			<h1 class="basicHead">Plans</h1>
+
+            <input id = "plan_slot_0" type ="curr_plan" onload = "setActivePlan()" onclick="showBuildAPlan()">
+            <input id = "back_food_list" type ="refresh_food" value = "back" onclick ="backFood()">
+            <input id = "swap_exercise_list" type ="refresh_exercise" value = "swap" onclick ="swapExercise()">
+            <ul class ="plan_cal">
+            <li>Calories:   xxx/3000 </li>
+            <br>
+            <li>Carbohydrates: xxx/40g  </li>
+            <br>
+            <li>Fat   xxx/20g</li>
+            <br>
+            <li>Protein xxx/80g</li>  
+            <br>
+            <br><br><br>
+            </ul>
+                 
+            <ul id = "food_list_1" class = "food">
+            <li><food id="high_fat_flist" onclick = "showFoodList(this.id)">Fat </food> </li>
+            <li><food id="protein_flist" onclick = "showFoodList(this.id)">Protein </food> </li>
+            <li><food id="carbohydrates_flist" onclick = "showFoodList(this.id)">Carbohydrates </food> </li>
+            <li><food id="low_fat_flist" onclick = "showFoodList(this.id)">Low Fat</food> </li>    
+            </ul>
+            
+            <ul id = "food_list_2" class = "food">
+            <li><food id="food1" onclick = "showNutritionFactsList(this.id)">Pizza</food> </li>
+            <li><food id="food2" onclick = "showNutritionFactsList(this.id)">Yogurt</food> </li>
+            <li><food id="food3" onclick = "showNutritionFactsList(this.id)">Apple</food> </li>
+            <li><food id="food4" onclick = "showNutritionFactsList(this.id)">Salmon</food> </li>    
+            </ul>
+            
+            <ul id = "food_list_nutrition" class = "food">
+            <li><food id="plan_cal_list" >Calories &nbsp; &nbsp; xxx</food> </li>
+            <li><food id="plan_carb_list" >Carb  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; xxx</food> </li>
+            <li><food id="plan_fat_list" >Fat &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; xxx </food> </li>
+            <li><food id="plan_protein_list">Protein &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbspxxx</food> </li>    
+            </ul>         
+            
+            <ul id = "ex_list_1" class = ex>
+            <li><food id="ex1">Deadlift </food> </li>
+            <li><food id="ex2">Squat </food> </li>
+            <li><food id="ex3">Benchpress </food> </li>
+            <li><food id="ex4">Bicep Curl</food> </li>    
+            </ul>
+            
+            <ul id = "ex_list_2" class = ex>
+            <li><food id="ex5">Tricep Ext </food> </li>
+            <li><food id="ex6">Jog </food> </li>
+            <li><food id="ex7">Crunch </food> </li>
+            <li><food id="ex8">Knee Raise </food> </li>    
+            </ul>
+        
+             
+            
+            <div id ="avail_plans">
+            <h1>Available Plans</h1> 
+            <input id= "plan_slot_1" type ="avail_1" value = "Plan 1" onclick="showBuildAPlan(); swapPlans(this.id);">   
+            <input id= "plan_slot_2" type ="avail_2" value = "Plan 2" onclick="showBuildAPlan();  swapPlans(this.id);">   
+            <input id= "plan_slot_3" type ="avail_3" value = "Plan 3" onclick="showBuildAPlan();  swapPlans(this.id)"> 
+            </div>
+            
+
+
+        </div>
+        
+        
+	    <!----Build a plan screen---->
+		<div id="build_plan">
+            
+
+            <h1 class="basicHead">Build a Plan</h1>
+            
+            <div> 
+            <!---left column--->
+
+            <h2>&nbsp;&nbsp;&nbsp;&nbsp;Plan Name</h2>
+
+  
+                
+                
+                <textarea id = "name_text_box"> </textarea>
+       
+                
+                
+                
+            <h2>&nbsp;&nbsp;&nbsp;&nbsp;Description </h2>
+                 
+            <textarea id = "description_text_box">   </textarea>
+        
+            </div>
+            
+            <div id = "right_column"> <!--right column--->
+                
+            <h1> Settings </h1>
+            <button class = "plan_options" id="plan_options_gain" onclick = "highlightPlanOption(this.id)">Gain</button>
+            <button class = "plan_options" id="plan_options_lose" onclick = "highlightPlanOption(this.id)">Lose</button>
+            <h2><br></h2>
+                
+            <button class = "plan_options" id="plan_options_weight" onclick = "highlightPlanOption(this.id)">Weight</button>
+            <button class = "plan_options" id="plan_options_fat" onclick = "highlightPlanOption(this.id)">Fat</button>
+            <button class = "plan_options" id="plan_options_muscle" onclick = "highlightPlanOption(this.id)">Muscle</button>
+            <button class = "plan_options" id="plan_options_definition" onclick = "highlightPlanOption(this.id)">Definition</button>
+            
+            <h3><br></h3>
+                
+            <button class = "plan_options" id="plan_options_vegan" onclick = "highlightPlanOption(this.id)">Vegan</button>
+            <button class = "plan_options" id="plan_options_vegetarian" onclick = "highlightPlanOption(this.id)">Vegetarian</button>
+            <button class = "plan_options" id="plan_options_dairyFree" onclick = "highlightPlanOption(this.id)">Dairy Free</button>
+            <button class = "plan_options" id="plan_options_pescatarian" onclick = "highlightPlanOption(this.id)">Pescatarian</button>
+            
+            
+        
+            </div>
+            
+            <div id= "bottom_conformation_control"> <!--bottom bar--->
+            
+        
+                <button id="button_conformation_control">Delete</button>
+                <button id="button_conformation_control" onclick = "showPlans()">Cancel</button>
+                <button id="button_conformation_control" onclick = "swapCurrTitle();" >Confirm</button>   
+            </div>
+            
+            
+
+		</div>
+            
+            
+            </div>
+                <!---------->
+                <!---------->
+                <!---------->
+                <!---------->
+                <!---------->
+                <!---------->
+                <!---------->
+                <!---------->
+                <!---------->
+                <!---------->
+	<!*****MEALS*****>		
+
+	<div id="meals">
+		
+		<h1 class="basicHead">Meals</h1>
+		<div id="eachMeal">
+
+			<h2>Breakfast
+				<button type="button" class="plus" onclick= "showBreakfast()">
+					<span class="button__icon">
+						<ion-icon name="add-circle-outline"></ion-icon>
+					</span>
+				</button>			
+			</h2>
+			<h4>Recommended 600-800 Kcal</h4>
+			<div class="horizontal_slider">
+				<div class="container">
+					<span class="a">Francetoast</span> 
+					<span class="a">Egg</span> 
+					<span class="a">toast</span> 
+					<span class="a">toast</span>
+					<span class="a">Egg</span> 
+					<span class="a">toast</span> 
+					<span class="a">toast</span>
+				</div>
+			</div>	
+						
+			<h2>Lunch
+				<button type="button" class="plus" onclick= "showLunch()"> 
+					<span class="button__icon">
+						<ion-icon name="add-circle-outline"></ion-icon>
+					</span>
+				</button>
+			</h2>
+			<h4>Recommended 700-900 Kcal</h4>
+			<div class="horizontal_slider">
+				<div class="container">
+					<span class="a">Francetoast</span> 
+					<span class="a">Egg</span> 
+					<span class="a">toast</span> 
+					<span class="a">toast</span>
+					<span class="a">Egg</span> 
+					<span class="a">toast</span> 
+					<span class="a">toast</span>
+				</div>
+			</div>	
+
+			<h2>Dinner
+				<button type="button" class="plus" onclick= "showDinner()">
+					<span class="button__icon">
+						<ion-icon name="add-circle-outline"></ion-icon>
+					</span>
+				</button>
+			</h2>
+			<h4>Recommended 900-1000 Kcal</h4>
+			<div class="horizontal_slider">
+				<div class="container">
+					<span class="a">Francetoast</span> 
+					<span class="a">Egg</span> 
+					<span class="a">toast</span> 
+					<span class="a">toast</span>
+					<span class="a">Egg</span> 
+					<span class="a">toast</span> 
+					<span class="a">toast</span>
+				</div>
+			</div>
+
+			<h2>Snack
+				<button type="button" class="plus" onclick= "showSnack()">
+					<span class="button__icon">
+						<ion-icon name="add-circle-outline"></ion-icon>
+					</span>
+				</button>
+			</h2>
+			<h4>Recommended 200-300 Kcal</h4>
+			<div class="horizontal_slider">
+				<div class="container">
+					<span class="a">Francetoast</span> 
+					<span class="a">Egg</span> 
+					<span class="a">toast</span> 
+					<span class="a">toast</span>
+					<span class="a">Egg</span> 
+					<span class="a">toast</span> 
+					<span class="a">toast</span>
+				</div>
+			</div>
+
+		</div>
+	
+		</div>
+			<div id="breakfast">
+				<h1 class="centerHead">Breakfast</h1>
+			<div class="searchbar">
+				<input type="text" placeholder="Search for your favourite food:...">
+			<button type="button" class="search">
+				<span class="button__icon">
+					<ion-icon name="search-outline"></ion-icon>
+				</span>
+			</button>
+		</div>
+
+		<div class="container-big">
+			<div class="container-small">
+			<div class="search-container">
+				<div class="search-engine">
+				<p class="search-title">Search Names</p>
+				<input
+					type="input"
+					id="search-input"
+					autocomplete="off"
+					placeholder="Search for your favourite food...."
+				/>
+				</div>
+				<div id="search-results"></div>
+				<div id="search-data"></div>
+			</div>
+			</div>
+		</div>
+		<div id="mealTracker">
+			<form>
+			
+				<label for= "mealNameField" id ="mealNameLabel">Search </label>
+				<input type="text" id="mealNameField" name="mealNameField" list="mealDropList"> <!--<!user types in exercise name here>-->
+				
+					<datalist id="mealDropList">
+					<!--<!script adds and removes content here>-->
+					
+					</datalist>
+
+					<form id="mealFields">
+						<label for="servingField" id="servingLabel">Serving</label>
+							<input type="text" id="servingField" name="servingField">
+					</form>	
+
+					<button id="confirmTrackingMealBtn">+</button> 
+					
+			</form>
+		</div>
+
+		<div id="mealAdded" class="added">
+			<h4>Added</h4>
+			<span class="b">Francetoast</span>
+			<span class="b">Francetoast</span>
+		</div>
+
+		<br><br><br><br>
+		<div class="section1">
+			<span class="a">Francetoast</span> <span class="a">Egg</span> 
+			<span class="a">toast</span> <span class="a">toast</span>
+			<span class="a">Francetoast</span> <span class="a">Egg</span> 
+			<span class="a">toast</span> <span class="a">toast</span>
+			<span class="a">Francetoast</span> <span class="a">Egg</span> 
+			<span class="a">toast</span> <span class="a">toast</span>
+		</div>
+	</div>
+	<div id="lunch">
+		<h1 class="centerHead">Lunch</h1>
+		<div class="searchbar">
+			<input type="text" placeholder="Search for your favourite food:...">
+			<button type="button" class="search">
+				<span class="button__icon">
+					<ion-icon name="search-outline"></ion-icon>
+				</span>
+			</button>
+		</div>
+
+		<div class="added">
+			<h4>Added</h4>
+			<span class="b">Francetoast</span>
+			<span class="b">Francetoast</span>
+		</div>
+
+		<br><br><br><br>
+		<div class="section1">
+			<span class="a">Francetoast</span> <span class="a">Egg</span> 
+			<span class="a">toast</span> <span class="a">toast</span>
+			<span class="a">Francetoast</span> <span class="a">Egg</span> 
+			<span class="a">toast</span> <span class="a">toast</span>
+			<span class="a">Francetoast</span> <span class="a">Egg</span> 
+			<span class="a">toast</span> <span class="a">toast</span>
+		</div>
+	</div>
+	<div id="dinner">
+		<h1 class="centerHead">Dinner</h1>
+		<div class="searchbar">
+			<input type="text" placeholder="Search for your favourite food:...">
+			<button type="button" class="search">
+				<span class="button__icon">
+					<ion-icon name="search-outline"></ion-icon>
+				</span>
+			</button>
+		</div>
+
+		<div class="added">
+			<h4>Added</h4>
+			<span class="b">Francetoast</span>
+			<span class="b">Francetoast</span>
+		</div>
+
+		<br><br><br><br>
+		<div class="section1">
+			<span class="a">Francetoast</span> <span class="a">Egg</span> 
+			<span class="a">toast</span> <span class="a">toast</span>
+			<span class="a">Francetoast</span> <span class="a">Egg</span> 
+			<span class="a">toast</span> <span class="a">toast</span>
+			<span class="a">Francetoast</span> <span class="a">Egg</span> 
+			<span class="a">toast</span> <span class="a">toast</span>
+		</div>
+	</div>
+	<div id="snack">
+		<h1 class="centerHead">Snack</h1>
+		<div class="searchbar">
+			<input type="text" placeholder="Search for your favourite food:...">
+			<button type="button" class="search">
+				<span class="button__icon">
+					<ion-icon name="search-outline"></ion-icon>
+				</span>
+			</button>
+		</div>
+
+		<div class="added">
+			<h4>Added</h4>
+			<span class="b">Francetoast</span>
+			<span class="b">Francetoast</span>
+		</div>
+		
+		<br><br><br><br>
+		<div class="section1">
+			<span class="a">Francetoast</span> <span class="a">Egg</span> 
+			<span class="a">toast</span> <span class="a">toast</span>
+			<span class="a">Francetoast</span> <span class="a">Egg</span> 
+			<span class="a">toast</span> <span class="a">toast</span>
+			<span class="a">Francetoast</span> <span class="a">Egg</span> 
+			<span class="a">toast</span> <span class="a">toast</span>
+		</div>
+	</div>
+	<!--for creating icons-->
+	<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+	<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+		
+	<!*****WATER*****>	
+		<div id="water">
+			<div id="loader"></div>
+			<h1 class="basicHead" style="font-family: Calibri, sans-serif;">Water</h1>
+
+			<div id="water_chart" style="width: 600px; height: 300px;"></div>
+			<div id="content" style = "font-family: Calibri, sans-serif"></div>
+			
+
+			<div id="glass">
+				<div class="glass__inner">
+				  <div id="liquid"
+					class="liquid liquid--hidden">
+				  </div>
+				</div>
+				<div id = "quantity_display_glasses" style = "font-family: Calibri, sans-serif">
+					cups	
+				</div>
+				<div id = "recommended_label" style = "font-family: Calibri, sans-serif">Daily Recommended
+				</div>
+				<hr id="recommended_line_water">
+				</hr>
+				<input type="number" id="quantity_display_number" step="1.0" onkeydown="return false" min="0" onChange="handleLevelChange(this.value);">
+					<div class="btn" title = "Use this input field to enter amount of water consumed for the selected date.">i</div>
+				</input>
+			</div>
+		</div>
+		
+	<!*****SLEEP*****>		
+		<div id="sleep">
+		
+			<h1 class="basicHead">Sleep</h1>
+
+		
+			
+			<p class="solid">Your sleep goal is </p> 
+			<p2 class= "to"> to</p2>
+		
+		
+			<select id="hours1_slept" onchange= "time1Selected();">
+				<option >12</option>
+				<option >1</option>
+				<option >2</option>
+				<option >3</option>
+				<option >4</option>
+				<option >5</option>
+				<option >6</option>
+				<option >7</option>
+				<option >8</option>
+				<option >9</option>
+				<option >10</option>
+				<option >11</option>
+			</select>
+			
+			<p2 id="time1"></p2>
+
+
+			<select id="hours2_slept" onchange= "time2Selected();">
+				<option >6</option>
+				<option >12</option>
+				<option >1</option>
+				<option >2</option>
+				<option >3</option>
+				<option >4</option>
+				<option >5</option>
+				<option >7</option>
+				<option >8</option>
+				<option >9</option>
+				<option >10</option>
+				<option >11</option>
+			</select>
+
+			<p4 id="time2"></p4>
+
+			<select id="am_or_pm_1" onchange= "am_or_pm_1_Selected();">
+				<option >am</option>
+				<option >pm</option>
+			</select>
+			<p5 id="am_pm1"></p5>
+
+			<select id="am_or_pm_2" onchange= "am_or_pm_2_Selected();">
+				<option >am</option>
+				<option >pm</option>
+			</select>
+			<p6 id="am_pm2"></p6>
+
+
+
+
+			<p2 class="night-tracks">Night Tracks</p2>
+			<img src="speaker3.jpg" alt="Speaker" width="416" height="416">
+
+			<ul class="a">
+				<li>Nature&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6:25 min </li>
+				<li>Fireside&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2:30 min</li>
+				<li>Quiet Time&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2:25 min</li>
+			</ul>
+
+			<audio class= "audio1" controls autoplay>
+				<source src="nature.mp3" type="audio/mpeg">
+			  Your browser does not support the audio element.
+			</audio>
+
+			<audio class= "audio2" controls autoplay>
+				<source src="Fireside.mp3" type="audio/mpeg">
+			  Your browser does not support the audio element.
+			</audio>
+
+			<audio class= "audio3" controls autoplay>
+				<source src="Quiet_Time.mp3" type="audio/mpeg">
+			  Your browser does not support the audio element.
+			</audio>
+
+			<div id="sleep_chart" style="width: 600px; height: 300px;"></div>
+			<div id="content"></div> 
+		     
+			
+
+			<div class= "chartBox">
+				<canvas id="myChart"></canvas> 
+			</div>
+			
+
+			
+			
+			<button id= "updateSleepChart">Update</button> 
+
+			<div class="clock-container"></div>
+			<div class="clock-number num1"><div class="">2</div></div>  
+			<div class="clock-number num2"><div class="">4</div></div>  
+		        <div class="clock-number num3"><div class="">6</div></div>  
+			 <div class="clock-number num4"><div class="">8</div></div>  
+			 <div class="clock-number num5"><div class="">10</div></div>  
+			 <div class="clock-number num6"><div class="">12 PM</div></div>  
+			 <div class="clock-number num7"><div class="">2</div></div>  
+			 <div class="clock-number num8"><div class="">4</div></div>  
+			 <div class="clock-number num9"><div class="">6</div></div>  
+			 <div class="clock-number num10"><div class="">8</div></div>  
+			 <div class="clock-number num11"><div class="">10</div></div>  
+			 <div class="clock-number num12"><div class="">12 AM</div></div>  
+
+			<p id="numHours"></p>
+
+
+			<p3 id="invalid"></p3>
+		
+		</div>
+		
+	<!*****EXERCISE*****>		
+		<div id="exercise">
+		
+			<h1 class="basicHead">Exercise</h1>
+		
+			<div id="chartDiv"> <!chart goes here>
+				<button id="chartBkdBtn" onclick="chartTypeBkd()"> <b> &lt; </b> </button>
+				<canvas id="exChart" style="position: relative; width:100%; height: 100%; max-width:100%; max-height: 100%;"></canvas>
+			
+				<button id="chartFwdBtn" onclick="chartTypeFwd()"> <b> &gt; </b> </button>
+				<button id="monthlyButton" onclick="showMonthlyChart()">Monthly</button>
+				<button id="weeklyButton" onclick="showWeeklyChart()">Weekly</button>	
+			</div> <!end chartDiv>
+			
+			
+			<div id="exMenuDiv">
+				
+				<button id="trackExBtn" onclick="addExToTracker()">Track<br>Activities</button>
+				<button id="routineMngBtn" onclick="openRoutineManager()">Routine<br>Management</button>
+					
+				<div id="trackWeightArea">
+					<form>
+					<input type="text" id="weightTrackerField" name="weightField">
+					</form>
+				 
+					<button id="trackWeightBtn" onclick="trackWeightPressed()">Track<br>Weight</button>
+				</div> <!end weight tracking area>
+				
+			</div> <!end exTrackerMenu>
+			
+			<div id="exManagmentHeadSection">
+				<h3 id="exManagmentHeader">Track progress here</h3>
+				<button id="backButton" onclick="exBackBtnPressed()">Back</button>
+			</div> <!end management section>
+			
+			<div id="exerciseAdder"> <!adds an exercise to anything>
+				<button id="routineTrackBtn" onclick="trackRoutine()">Track a routine</button> <!for tracking routines>
+				<!its text fields and button>
+				
+				<form id="exAddForm">
+					<label for= "exNameField" id ="exNameLabel">Name: </label>
+					<input type="text" id="exNameField" name="exNameField" list="exDropList"> <!user types in exercise name here>
+						<datalist id="exDropList">
+						<!script adds and removes content here>
+						</datalist>
+				</form>
+				
+					<form id="exFields">
+					<label for="setsField" id="setsLabel">Sets</label>
+						<input type="text" id="setsField" name="setsField">
+					<label for="weightField" id="weightLabel">Weight</label>
+						<input type="text" id="weightField" name="weightField">
+					<label for="repsField" id="repsLabel">Reps</label>
+						<input type="text" id="repsField" name="repsField">
+					<label for="durationField" id="durationLabel">Durtaion</label>
+						<input type="text" id="durationField" name="durationField">
+					</form>			
+					
+				<!confirm button>
+				<button id="confirmAddExBtn">+</button> <! for exercises>
+			
+			</div> <!end exerciseAdder>
+			
+			<div id="routineAdder"> <!adds routine to the tracker></div>
+			
+			<div id="routineCreator">
+				
+				<form>
+					<label for="newRoutineNameField">Routine Name</label>
+						<input type="text" id="newRoutineNameField" name="newRoutineNameField">
+				</form>
+					
+				<button id="addExToRoutineBtn">Add activity</button>
+				<button id="confirmRoutineBtn">Done</button>
+					
+				<div id="newRtnListDiv">
+					
+				</div> <!end new routine list div>
+				
+			</div> <!end routine creator>
+			
+			<div id="routineManager">
+				
+				<button id="newRoutineBtn" onclick="createNewRoutine()">New Routine</button>
+				
+				<!list of routines>
+				<div id="routinesList"></div>
+				
+			</div> <!end routineManager>
+			
+			<!where the exercises/routines done on the day are displayed>
+			<div id="exTodayTracker"></div>
+			
+			<div id="todayExBorder"> <!header>
+			    <h2>TODAY:</h2>
+			</div>
+			
+			<div id="recommendedExDiv"></div>
+			
+		</div> <!end exercise>
+
+
+
+
+	</body>
+
+</html> 

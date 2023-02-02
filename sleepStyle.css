@@ -1,0 +1,242 @@
+
+/*********Sleep ************/
+
+#sleep_chart {
+	z-index: 2;
+	position: absolute;
+	left: 1%;
+	top: 8.5%;
+
+}
+
+
+/**the pie chart for the clock **/
+.chartBox{
+	width: 250px;
+	top: 6%;
+	left: 60%;
+	
+	position: absolute;
+
+	padding-bottom: 10px;
+
+}
+
+
+/** Sleep: user input values**/
+.solid{
+
+    top: 1.5%;
+    left: 65%;
+    position: absolute;
+
+}
+#invalid{
+	top: 6%;
+	left: 84%;
+
+	position: absolute;
+
+}
+.night-tracks{
+
+	left:1%;
+	top:40%;
+	font-size: 22px;
+	font-weight: bold;
+
+	
+    position: absolute;
+
+}
+img {
+	width:30px;
+	height:30px;
+	left:1%;
+	top:45%;
+	position: absolute;
+}
+ul.a {
+	list-style-type: circle;
+	left:0.1%;
+	top:48%;
+	position: absolute;
+	font-weight: bold;
+
+}
+audio.audio1{
+	left:20%;
+	top:50%;
+	position: absolute;
+	width:200px;
+	height:11px;
+}
+audio.audio2{
+	left:20%;
+	top:52.5%;
+	position: absolute;
+	width:200px;
+	height:11px;
+}
+audio.audio3{
+	left:20%;
+	top:55%;
+	position: absolute;
+	width:200px;
+	height:11px;
+}
+#hours1_slept{
+	width: 40px;
+	top: 3.3%;
+	left: 78%;
+	position: absolute;
+	
+}
+
+#am_or_pm_1{
+	width: 40px;
+	top: 3.3%;
+	left: 81%;
+	position: absolute;
+}
+.to{
+	top: 3.3%;
+	left: 84.5%;
+	position: absolute;
+
+}
+#hours2_slept{
+	width: 40px;
+	top: 3.3%;
+	left: 86%;
+	position: absolute;
+}
+#am_or_pm_2{
+	width: 40px;
+	top: 3.3%;
+	left:89%;
+	position: absolute;
+	
+}
+#updateSleepChart{
+	top: 3.1%;
+	left: 93%;
+	position: absolute;
+}
+#numHours{
+	left:67%;
+	top: 37%;
+	position: absolute;
+}
+
+.clock-number{  
+	position: absolute;  
+	width: 29%;  
+	height: 29%;  
+	top:8%;  
+	left: 55%;
+	text-align: center;  
+}  
+.clock-number:after{  
+	content:"";  
+	position:absolute;  
+	height:13px;  
+	width:3px;  
+	top:13%;  
+	
+	background:#000;  
+
+}
+
+.clock-number> div{  
+	padding: 8px;  
+}  
+.num1{  
+	transform: rotate(30deg)  
+}  
+
+.num1 > div{  
+	transform: rotate(-30deg)  
+}  
+.num2{  
+	transform: rotate(60deg)  
+}  
+
+.num2 > div{  
+	transform: rotate(-60deg)  
+}  
+.num3{  
+	transform: rotate(90deg)  
+}  
+
+.num3 > div{  
+	transform: rotate(-90deg)  
+}  
+.num4{  
+	transform: rotate(120deg)  
+}  
+
+.num4 > div{  
+	transform: rotate(-120deg)  
+}  
+.num5{  
+	transform: rotate(150deg)  
+}  
+
+.num5 > div{  
+	transform: rotate(-150deg)  
+}  
+.num6{  
+	transform: rotate(180deg)  
+}  
+
+.num6 > div{  
+	transform: rotate(-180deg)  
+}  
+.num7{  
+	transform: rotate(210deg)  
+}  
+
+.num7 > div{  
+	transform: rotate(-210deg)  
+}  
+.num8{  
+	transform: rotate(240deg)  
+}  
+
+.num8 > div{  
+	transform: rotate(-240deg)  
+}  
+.num9{  
+	transform: rotate(270deg)  
+}  
+
+.num9 > div{  
+	transform: rotate(-270deg)  
+}  
+.num10{  
+	transform: rotate(300deg)  
+}  
+
+.num10 > div{  
+	transform: rotate(-300deg)  
+}  
+.num11{  
+	transform: rotate(330deg)  
+}  
+
+.num11 > div{  
+	transform: rotate(-330deg)  
+}  
+
+.num12{  
+	transform: rotate(360deg)  
+}  
+
+.num12 > div{  
+	transform: rotate(-360deg)  
+}
+
+
+
+
